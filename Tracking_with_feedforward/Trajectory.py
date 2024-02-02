@@ -79,6 +79,10 @@ def main():
     # print('error_y :', error_y)
     # print('error_z :', error_z)
     # print('error_yaw :', error_yaw)
+    error_yaw = np.mean(yaw[0:300]-tpsi[0:300])
+    print('error_yaw :', error_yaw / np.pi * 180)
+    error = np.mean(((px[0:300]-tx[0:300])**2+(py[0:300]-ty[0:300])**2+(pz[0:300]-tz[0:300])**2)**0.5)
+    print(error)
     error_yaw = np.mean((yaw[300:5000]-tpsi[300:5000])**2)**0.5
     print('error_yaw :', error_yaw / np.pi * 180)
     error = np.mean(((px[300:5000]-tx[300:5000])**2+(py[300:5000]-ty[300:5000])**2+(pz[300:5000]-tz[300:5000])**2)**0.5)
